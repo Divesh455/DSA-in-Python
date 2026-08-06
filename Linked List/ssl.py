@@ -52,6 +52,33 @@ class SinglyLinkedList:
             cur.next = new_node
             new_node.next = r
             print(f'Value add at {p} Position')
+        
+    def delete(self,val):
+        
+        temp = self.head
+        
+        if temp.next is not None:
+            
+            if temp.val == val:
+                self.head = temp.next
+                del temp
+                return
+            else:
+                found = False
+                prev = None
+                while temp is not None:
+                    if temp.val == val:
+                        found = True
+                        break
+                    prev = temp
+                    temp = temp.next
+                
+                if found:
+                    prev.next = temp.next
+                    del temp
+                else:
+                    print('Node Not Found \n')
+        
 
 sll = SinglyLinkedList()
 sll.append(13)
@@ -59,5 +86,8 @@ sll.append(14)
 sll.append(15)
 sll.append(16)
 sll.append(17)
-sll.insert(10,20)
+sll.insert(2,20)
+sll.Traverse()
+print("\n")
+sll.delete(22)
 sll.Traverse()
