@@ -13,11 +13,11 @@ class Solution:
 
         even_head = even
 
-        while even is not None and even.next is not None:
-            odd.next = odd.next.next
+        while even and even.next:
+            odd.next = even.next
             odd = odd.next
 
-            even.next = even.next.next
+            even.next = odd.next
             even = even.next
 
         odd.next = even_head
